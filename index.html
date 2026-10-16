@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#17251d">
+  <title>Fantasy Tower Defense</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">REALM OF ELDORIA</p>
+        <h1>Fantasy Tower Defense</h1>
+      </div>
+      <button id="soundBtn" class="quiet-button" type="button" aria-pressed="false">🔊 Sound: Off</button>
+    </header>
+
+    <section class="hud" aria-label="Game statistics">
+      <div class="stat"><span>🪙 Gold</span><strong id="gold">180</strong></div>
+      <div class="stat"><span>❤️ Lives</span><strong id="lives">20</strong></div>
+      <div class="stat"><span>🌊 Wave</span><strong id="wave">0</strong></div>
+      <div class="stat"><span>☠️ Enemies</span><strong id="enemyCount">0</strong></div>
+    </section>
+
+    <section class="game-panel">
+      <div class="canvas-wrap">
+        <canvas id="game" width="900" height="560" aria-label="Tower defense battlefield"></canvas>
+        <div id="overlay" class="overlay">
+          <div class="overlay-card">
+            <div class="crest">⚔️</div>
+            <h2 id="overlayTitle">Defend the Realm!</h2>
+            <p id="overlayText">Build towers beside the road, then start the first wave. Don't let the monsters reach the castle.</p>
+            <button id="overlayStart" class="primary-button" type="button">Start First Wave</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="tower-picker">
+          <p class="section-label">BUILD A TOWER</p>
+          <div class="tower-options">
+            <button class="tower-option selected" data-tower="archer" type="button">
+              <span class="tower-icon">🏹</span><span class="tower-name">Archer</span><span class="tower-cost">🪙 60</span>
+            </button>
+            <button class="tower-option" data-tower="mage" type="button">
+              <span class="tower-icon">🔮</span><span class="tower-name">Mage</span><span class="tower-cost">🪙 90</span>
+            </button>
+            <button class="tower-option" data-tower="cannon" type="button">
+              <span class="tower-icon">💣</span><span class="tower-name">Druid</span><span class="tower-cost">🪙 120</span>
+            </button>
+          </div>
+          <p id="buildHint" class="hint">Archer selected. Tap an empty grass tile to build.</p>
+        </div>
+
+        <div class="selected-panel">
+          <p class="section-label">SELECTED TOWER</p>
+          <div id="towerInfo" class="tower-info">Tap one of your towers to inspect it.</div>
+          <div class="action-row">
+            <button id="upgradeBtn" class="primary-button" type="button" disabled>⬆ Upgrade</button>
+            <button id="sellBtn" class="danger-button" type="button" disabled>Sell</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bottom-bar">
+      <div class="status-copy"><span class="status-dot"></span><span id="statusText">Ready to defend the realm</span></div>
+      <div class="bottom-actions">
+        <button id="startWaveBtn" class="primary-button" type="button">▶ Start Wave 1</button>
+        <button id="pauseBtn" class="secondary-button" type="button" disabled>Ⅱ Pause</button>
+        <button id="restartBtn" class="secondary-button" type="button">↻ Restart</button>
+      </div>
+    </section>
+    <p class="help">Tip: place towers close enough to cover the road. Select a tower to upgrade it. Works with mouse, touchscreen, and keyboard.</p>
+    <footer>Fantasy Tower Defense · HTML Canvas + JavaScript · Made for the browser</footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
